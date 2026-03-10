@@ -1,0 +1,30 @@
+{
+  "name": "pancakeswap-dump",
+  "version": "1.0.0",
+  "description": "Static set of addresses (PancakeSwap Ethereum mainnet)",
+  "keywords": [
+    "PancakeSwap",
+    "DEX"
+  ],
+  "homepage": "https://github.com/calp-pro/pancakeswap-dump#readme",
+  "bugs": {
+    "url": "https://github.com/calp-pro/pancakeswap-dump/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/calp-pro/pancakeswap-dump.git"
+  },
+  "license": "MIT",
+  "author": "Vladimir Spirin (spirin.vladimir@gmail.com)",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node -e \"require('./index.js').load({workers: 0})\""
+  },
+  "dependencies": {
+    "uniswap-v2-loader": "^5.0.20"
+  },
+  "publishConfig": {
+    "provenance": true
+  }
+}

@@ -6,25 +6,25 @@ Static set of addresses (PancakeSwap Ethereum mainnet).<br>
 New pairs updates happen every hour at GitHub Action [update.yml](https://github.com/calp-pro/uniswap-v2-dump/actions/workflows/update.yml)<br>
 via [uniswap-v2-loader](https://github.com/calp-pro/uniswap-v2-loader)
 
-Data: `dump.csv` ---Kb+ 
+Data: `dump.csv` 986Kb+ 
 
 CSV schema: `id,pair,token0,token1`
 
 ## Example:
 ```
 ...
-
+13,0x29ba6dddcc17513855fcd3f710be89b50cf17e5b,0xbec299f79fe8edf9f7374113d576f9b7c008b154,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2
 ...
 ```
 where:
-- ``
+- `13`
   * pair/pool index at factory contract
-- ``
-  * / AMM [contract](https://etherscan.io/address/) address
-- ``
-  *  ERC-20 token [contract](https://etherscan.io/token/) address
-- ``
-  *  ERC-20 token [contract](https://etherscan.io/token/) address
+- `0x29ba6dddcc17513855fcd3f710be89b50cf17e5b`
+  * FLAKE/WETH AMM [contract](https://etherscan.io/address/0x29ba6dddcc17513855fcd3f710be89b50cf17e5b) address
+- `0xbec299f79fe8edf9f7374113d576f9b7c008b154`
+  * FLAKE ERC-20 token [contract](https://etherscan.io/token/0xbec299f79fe8edf9f7374113d576f9b7c008b154) address
+- `0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2`
+  * WETH ERC-20 token [contract](https://etherscan.io/token/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2) address
 
 ## API
 Same implementation as other Uniswap v2 based protocols.<br>
@@ -33,6 +33,6 @@ Predefined `filename` with value `dump.csv`.
 
 ## Usage CLI/API:
 ```bash
-> node -e "require('sushiswap-dump').load().then(pairs => console.log(pairs.length))"
-> 
+> node -e "require('pancakeswap-dump').load().then(pairs => console.log(pairs.length))"
+> 7537
 ```

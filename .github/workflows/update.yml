@@ -1,0 +1,60 @@
+name: Update dump.csv
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-data:
+
+    permissions:
+      contents: write
+      id-token: write  # Required for OIDC
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        lfs: true
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22'
+        registry-url: 'https://registry.npmjs.org'
+
+    - name: Update npm
+      run: npm install -g npm@latest
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run update
+      run: npm start
+
+    - name: Commit and push changes
+      id: commit
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git add dump.csv
+        if ! git diff --cached --quiet; then
+          npm version patch --force -m "chore: update dump.csv to %s [skip ci]"
+          git push --follow-tags
+          echo "can_publish=true" >> $GITHUB_OUTPUT
+        else
+          echo "No changes"
+        fi
+
+    - name: Publish to NPM
+      if: steps.commit.outputs.can_publish == 'true'
+      run: npm publish

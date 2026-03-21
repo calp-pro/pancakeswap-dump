@@ -3,7 +3,7 @@
 <br>
 
 Static set of addresses (PancakeSwap Ethereum mainnet).<br>
-New pairs updates happen **every hour** at GitHub Action [update.yml](https://github.com/calp-pro/uniswap-v2-dump/actions/workflows/update.yml)<br>
+New pairs updates happen **every hour** at GitHub Action [update.yml](https://github.com/calp-pro/pancakeswap-dump/actions/workflows/update.yml)<br>
 via [uniswap-v2-loader](https://github.com/calp-pro/uniswap-v2-loader)
 
 Data:
@@ -38,7 +38,7 @@ where:
 ## API
 Same implementation as other Uniswap v2 based protocols.<br>
 Base API reference: [uniswap-v2-loader](https://github.com/calp-pro/uniswap-v2-loader?tab=readme-ov-file#api-reference).<br>
-Predefined `filename` with value `dump.csv`.
+Predefined `filename` with value `dump` & `csv: false`.
 
 ## Usage CLI/API:
 ```bash

@@ -22,6 +22,7 @@
     "start": "node -e \"require('./index.js').load({workers: 0})\""
   },
   "dependencies": {
+    "@calp-pro/dex-db": "^2.0.4",
     "uniswap-v2-loader": "^5.0.20"
   },
   "publishConfig": {

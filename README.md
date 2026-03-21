@@ -3,18 +3,27 @@
 <br>
 
 Static set of addresses (PancakeSwap Ethereum mainnet).<br>
-New pairs updates happen every hour at GitHub Action [update.yml](https://github.com/calp-pro/uniswap-v2-dump/actions/workflows/update.yml)<br>
+New pairs updates happen **every hour** at GitHub Action [update.yml](https://github.com/calp-pro/uniswap-v2-dump/actions/workflows/update.yml)<br>
 via [uniswap-v2-loader](https://github.com/calp-pro/uniswap-v2-loader)
 
-Data: `dump.csv` 986Kb+ 
+Data:
+- `dump_pairs.bin` 148 Kb+ 
+- `dump_tokens.bin` 147 Kb+
+- `dump_p2tt.bin` 45 Kb+
 
-CSV schema: `id,pair,token0,token1`
-
-## Example:
-```
-...
-13,0x29ba6dddcc17513855fcd3f710be89b50cf17e5b,0xbec299f79fe8edf9f7374113d576f9b7c008b154,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2
-...
+## Output format
+`load` and subscribe` methods return collection of pools/pairs.
+```js
+[
+    ...
+    {
+        id: 13,
+        pair: '0x29ba6dddcc17513855fcd3f710be89b50cf17e5b',
+        token0: '0xbec299f79fe8edf9f7374113d576f9b7c008b154',
+        token1: '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2'
+    },
+    ...
+]
 ```
 where:
 - `13`

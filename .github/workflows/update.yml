@@ -44,12 +44,12 @@ jobs:
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
-        git add dump_pairs.bin
-        git add dump_tokens.bin
-        git add dump_p2tt.bin
+        git add dump_pairs.bin dump_tokens.bin dump_p2tt.bin
         if ! git diff --cached --quiet; then
           npm version patch --force -m "chore: update dump_*.bin to %s [skip ci]"
           git push --follow-tags
+          echo "can_publish=true" >> $GITHUB_OUTPUT
+        elif [ "${{ github.event_name }}" != "schedule" ]; then
           echo "can_publish=true" >> $GITHUB_OUTPUT
         else
           echo "No changes"

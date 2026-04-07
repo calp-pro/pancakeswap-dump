@@ -1,6 +1,6 @@
 {
   "name": "pancakeswap-dump",
-  "version": "1.0.52",
+  "version": "1.0.53",
   "description": "Static set of addresses (PancakeSwap Ethereum mainnet)",
   "keywords": [
     "PancakeSwap",
@@ -19,10 +19,11 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "start": "node -e \"require('./index.js').load({workers: 0})\""
+    "start": "node -e \"require('./index.js').load({workers: 0})\"",
+    "test": "node --test test.js"
   },
   "dependencies": {
-    "uniswap-v2-loader": "^6.1.3"
+    "uniswap-v2-loader": "6.1.*"
   },
   "publishConfig": {
     "provenance": true

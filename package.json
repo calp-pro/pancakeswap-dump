@@ -1,6 +1,6 @@
 {
   "name": "pancakeswap-dump",
-  "version": "1.0.122",
+  "version": "1.0.123",
   "description": "Static set of addresses (PancakeSwap Ethereum mainnet)",
   "keywords": [
     "PancakeSwap",
